@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Sansation";
+    src: url('../../public/fonts/Sansation.ttf');
+}
+
+body {
+    font-family: 'Sansation';
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
