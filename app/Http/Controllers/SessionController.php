@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\ValidateAuthRequest;
 use App\Http\Requests\ValidateRegisterRequest;
+use Carbon\Carbon;
 
 class SessionController extends Controller
 {
@@ -76,19 +77,18 @@ class SessionController extends Controller
 	{
 		app()->setLocale($locale);
 		$verifyUser = UserVerify::where('token', $token)->first();
-		$message = 'Sorry your email cannot be identified';
 
-		if (!is_null($verifyUser))
+		if (isset($verifyUser))
 		{
 			$user = $verifyUser->user;
 
-			if (!$user->is_email_verified)
+			if (!$user->email_verified_at)
 			{
-				$verifyUser->user->is_email_verified = 1;
-				$verifyUser->user->save();
+				$user->email_verified_at = Carbon::now();
+				$user->save();
+				DB::table('users_verify')->where(['token' => $token])->delete();
+				return view('email.account-confirmed', ['locale' => $locale]);
 			}
-			DB::table('users_verify')->where(['token' => $token])->delete();
-			return view('email.account-confirmed', ['locale' => $locale]);
 		}
 		return view('email.already-confirmed', ['locale' => $locale]);
 	}
