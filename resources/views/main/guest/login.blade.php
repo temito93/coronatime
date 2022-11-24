@@ -34,7 +34,7 @@
             </x-form.checkbox>
             <div class="mt-6">
                 <x-form.button
-                    class="bg-custom-green-500 text-white w-full py-5 rounded-lg hover:bg-blue-400"
+                    class="bg-custom-green-500 text-white font-black w-full py-5 rounded-lg hover:bg-blue-400"
                     >{{ __("login.login") }}</x-form.button
                 >
             </div>

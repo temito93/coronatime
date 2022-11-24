@@ -24,7 +24,6 @@
             <x-form.input type='password' name="confirm_password" placeholder="{{__('register.repeat.password')}}"
                 >{{__('register.repeat.password')}}</x-form.input
             >
-            <x-form.checkbox />
             <div class="mt-6">
                 <x-form.button class="bg-custom-green-500 text-white w-full font-black  py-5 rounded-lg hover:bg-blue-400">{{__('register.sign.up')}}</x-form.button>
             </div>
