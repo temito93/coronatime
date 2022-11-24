@@ -7,6 +7,7 @@
         <form action="{{route('signup', ['locale' => app()->getLocale()])}}" class="mt-6" method="POST">
             @csrf
             <x-form.input
+                id="username"
                 class="mb-0"
                 name="username"
                 placeholder="{{__('register.username.placeholder')}}"
@@ -14,14 +15,15 @@
             >
             <p class="whitespace-normal mt-2 mb-6 text-sm text-custom-zinc font-normal">{{__('register.username.warn')}}</p>
             <x-form.input
+                id="email"
                 name="email"
                 placeholder="{{__('register.email.placeholder')}}"
                 >{{__('register.email')}}</x-form.input
             >
-            <x-form.input type='password' name="password" placeholder="{{__('register.password.placeholder')}}"
+            <x-form.input id="password"  type='password' name="password" placeholder="{{__('register.password.placeholder')}}"
                 >{{__('register.password')}}</x-form.input
             >
-            <x-form.input type='password' name="confirm_password" placeholder="{{__('register.repeat.password')}}"
+            <x-form.input id="confirm_password" type='password' name="confirm_password" placeholder="{{__('register.repeat.password')}}"
                 >{{__('register.repeat.password')}}</x-form.input
             >
             <div class="mt-6">

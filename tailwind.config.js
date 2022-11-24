@@ -13,6 +13,7 @@ module.exports = {
             },
             borderColor: {
                 "custom-neutral-200": "#E6E6E7",
+                "custom-green": "#249E2C"
             },
             placeholderColor: {
                 "custom-zinc": "#808189",
