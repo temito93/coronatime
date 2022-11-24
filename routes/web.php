@@ -20,6 +20,6 @@ Route::prefix('/{locale}')->middleware(['guest', 'set.locale'])->group(function 
 });
 
 //AUTH
-Route::prefix('/{locale}')->middleware(['auth', 'verified.email'])->group(function () {
+Route::prefix('/{locale}')->middleware(['auth'])->group(function () {
 	Route::get('/dashboard', [SessionController::class, 'dashboard'])->name('dashboard');
 });
