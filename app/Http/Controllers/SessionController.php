@@ -66,7 +66,7 @@ class SessionController extends Controller
 
 		Mail::send('email.emailVerification', ['token' => $token], function ($message) use ($formFields) {
 			$message->to($formFields['email']);
-			$message->subject(app()->getLocale() == 'ge' ? 'პაროლის განახლება' : 'Email Verification');
+			$message->subject(app()->getLocale() == 'ge' ? 'ვერიფიკაციის მეილი' : 'Email Verification');
 		});
 
 		return view('email.confirmation');
