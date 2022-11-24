@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\ValidateAuthRequest;
 use App\Http\Requests\ValidateRegisterRequest;
+use Carbon\Carbon;
 
 class SessionController extends Controller
 {
@@ -39,6 +40,11 @@ class SessionController extends Controller
 
 		if (auth()->attempt($request->only($login_type, 'password'), $remember))
 		{
+			if (auth()->user()->email_verified_at == null)
+			{
+				auth()->logout();
+				return view('email.not-verified', ['locale' =>$locale]);
+			}
 			return redirect()->route('dashboard', ['locale' => $locale]);
 		}
 		return redirect()->back()->withInput()->withErrors(['login' => 'Invalid credentials']);
@@ -61,7 +67,7 @@ class SessionController extends Controller
 
 		Mail::send('email.emailVerification', ['token' => $token], function ($message) use ($formFields) {
 			$message->to($formFields['email']);
-			$message->subject(app()->getLocale() == 'ge' ? 'პაროლის განახლება' : 'Email Verification');
+			$message->subject(app()->getLocale() == 'ge' ? 'ვერიფიკაციის მეილი' : 'Email Verification');
 		});
 
 		return view('email.confirmation');
@@ -71,19 +77,18 @@ class SessionController extends Controller
 	{
 		app()->setLocale($locale);
 		$verifyUser = UserVerify::where('token', $token)->first();
-		$message = 'Sorry your email cannot be identified';
 
-		if (!is_null($verifyUser))
+		if (isset($verifyUser))
 		{
 			$user = $verifyUser->user;
 
-			if (!$user->is_email_verified)
+			if (!$user->email_verified_at)
 			{
-				$verifyUser->user->is_email_verified = 1;
-				$verifyUser->user->save();
+				$user->email_verified_at = Carbon::now();
+				$user->save();
+				DB::table('users_verify')->where(['token' => $token])->delete();
+				return view('email.account-confirmed', ['locale' => $locale]);
 			}
-			DB::table('users_verify')->where(['token' => $token])->delete();
-			return view('email.account-confirmed', ['locale' => $locale]);
 		}
 		return view('email.already-confirmed', ['locale' => $locale]);
 	}
