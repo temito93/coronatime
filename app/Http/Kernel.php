@@ -3,7 +3,6 @@
 namespace App\Http;
 
 use App\Http\Middleware\SetLocale;
-use App\Http\Middleware\IsVerifyEmail;
 use App\Http\Middleware\CheckUserSession;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -48,7 +47,6 @@ class Kernel extends HttpKernel
 		'signed'           => \App\Http\Middleware\ValidateSignature::class,
 		'throttle'         => \Illuminate\Routing\Middleware\ThrottleRequests::class,
 		'verified'         => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-		'verified.email'   => IsVerifyEmail::class,
 		'set.locale'       => SetLocale::class,
 	];
 }
