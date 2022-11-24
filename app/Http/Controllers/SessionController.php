@@ -39,6 +39,11 @@ class SessionController extends Controller
 
 		if (auth()->attempt($request->only($login_type, 'password'), $remember))
 		{
+			if (auth()->user()->email_verified_at == null)
+			{
+				auth()->logout();
+				return view('email.not-verified', ['locale' =>$locale]);
+			}
 			return redirect()->route('dashboard', ['locale' => $locale]);
 		}
 		return redirect()->back()->withInput()->withErrors(['login' => 'Invalid credentials']);
