@@ -14,7 +14,8 @@ module.exports = {
             borderColor: {
                 "custom-neutral-200": "#E6E6E7",
                 "custom-green": "#249E2C",
-                'custom-red': "#CC1E1E"
+                "custom-red": "#CC1E1E",
+                "custom-neutral-100": "#F6F6F7"
             },
             placeholderColor: {
                 "custom-zinc": "#808189",
