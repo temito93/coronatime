@@ -5,7 +5,7 @@
     </div>
     <div class="absolute top-0 w-[392px] h-[255px] flex flex-col items-center">
         <img src="{{asset('assets/images/yellow.png')}}"  width="90" alt="" class="mt-[53px]">
-        <p class="font-medium text-xl text-custom-black mt-6">Death</p>
+        <p class="font-medium text-xl text-custom-black mt-6">{{__('admin.death')}}</p>
         <p class="text-custom-yellow-400 font-black text-[39px] mt-4">{{$value}}</p>
     </div>
 </div>

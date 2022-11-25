@@ -102,4 +102,11 @@ class SessionController extends Controller
 		}
 		return view('email.already-confirmed', ['locale' => $locale]);
 	}
+
+	public function destroy($locale)
+	{
+		app()->setLocale($locale);
+		auth()->logout();
+		return redirect()->route('login', ['locale' => $locale]);
+	}
 }

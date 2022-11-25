@@ -20,6 +20,7 @@ Route::prefix('/{locale}')->middleware(['guest', 'set.locale'])->group(function 
 });
 
 //AUTH
-Route::prefix('/{locale}')->middleware(['auth'])->group(function () {
+Route::prefix('/{locale}')->middleware(['auth', 'set.locale'])->group(function () {
 	Route::get('/dashboard', [SessionController::class, 'dashboard'])->name('dashboard');
+	Route::post('/logout', [SessionController::class, 'destroy']);
 });
