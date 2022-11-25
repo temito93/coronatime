@@ -47,7 +47,7 @@ class SessionController extends Controller
 			}
 			return redirect()->route('dashboard', ['locale' => $locale]);
 		}
-		return redirect()->back()->withInput()->withErrors(['login' => app()->getLocale() == 'ge' ? 'თქვენ შეიყვანეთ არასწორი პარამეტრები.' : 'Invalid credentials']);
+		return redirect()->back()->withInput()->withErrors('message');
 	}
 
 	public function store(ValidateRegisterRequest $request, $locale)

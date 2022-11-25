@@ -20,11 +20,11 @@
         </div>
     </div>
     @error($name)
-   <div class="mt-2 flex">
-       <img src="{{asset('assets/images/not-found.png')}}" alt="">
-        <p class="text-red-500 text-sm ml-3">
-            {{ $message }}
-        </p>
-   </div>
+        <div class="mt-2 flex">
+            <img src="{{asset('assets/images/not-found.png')}}" alt="">
+                <p class="text-red-500 text-sm ml-3">
+                    {{ $message }}
+                </p>
+        </div>
     @enderror
 </div>
