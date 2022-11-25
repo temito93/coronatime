@@ -1,6 +1,6 @@
 <x-layout>
     <x-header />
-    <main>
+    <main class="px-[108px]">
         {{ $slot }}
     </main>
 </x-layout>
