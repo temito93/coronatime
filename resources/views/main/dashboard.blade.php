@@ -1,1 +1,1 @@
-<h1>You are logged in</h1>
+<x-dashboard-container></x-dashboard-container>
