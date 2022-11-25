@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 
 class GetStatistics extends Command
 {
-	protected $signature = 'command:get.statistics';
+	protected $signature = 'command:statistics';
 
 	protected $description = 'Get Corona Statistics';
 
@@ -20,17 +20,15 @@ class GetStatistics extends Command
 		{
 			$everyCountry = Http::post('https://devtest.ge/get-country-statistics', ['code' => $country['code']])->json();
 
-			$translations = ['en' => $country['name']['en'], 'ge' => $country['name']['ka']];
-
 			Statistic::updateOrCreate(
 				[
-					'country->en' => $translations['en'],
-					'country->ge' => $translations['ge'],
+					'country->en' => $country['name']['en'],
 				],
 				[
-					'new_cases' => $everyCountry['confirmed'],
-					'deaths'    => $everyCountry['deaths'],
-					'recovered' => $everyCountry['recovered'],
+					'country'              => $country['name'],
+					'new_cases'            => $everyCountry['confirmed'],
+					'deaths'               => $everyCountry['deaths'],
+					'recovered'            => $everyCountry['recovered'],
 				]
 			);
 		}
