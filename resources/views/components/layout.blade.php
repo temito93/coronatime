@@ -10,6 +10,7 @@
         />
         <title>Corona Time</title>
         @vite('resources/css/app.css')
+        @vite('resources/js/validation.js')
         <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </head>
     <body {{$attributes->

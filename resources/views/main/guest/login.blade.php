@@ -32,6 +32,16 @@
                     {{ __("login.forgot.password") }}</a
                 >
             </x-form.checkbox>
+
+            @if ($errors->any())
+                <div class="mt-5 flex">
+                    <img src="{{asset('assets/images/not-found.png')}}" alt="">
+                        <p class="text-red-500 text-sm ml-3">
+                            {{ __("login.login.error") }}
+                        </p>
+                </div>
+            @endif
+
             <div class="mt-6">
                 <x-form.button
                     class="bg-custom-green-500 text-white font-black w-full py-5 rounded-lg hover:bg-blue-400"
