@@ -7,9 +7,9 @@
         </div>
 
        <div class="mt-10 flex justify-between">
-            <x-new-cases />
-            <x-recovered />
-            <x-death />
+            <x-new-cases value={{$newCases}} />
+            <x-recovered value={{$recovered}} />
+            <x-death value={{$deaths}}/>
        </div>
     </section>
 </x-dashboard-container>

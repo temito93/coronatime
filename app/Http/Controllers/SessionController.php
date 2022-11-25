@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\ValidateAuthRequest;
 use App\Http\Requests\ValidateRegisterRequest;
+use App\Models\Statistic;
 use Carbon\Carbon;
 
 class SessionController extends Controller
@@ -26,7 +27,16 @@ class SessionController extends Controller
 	public function dashboard($locale)
 	{
 		app()->setLocale($locale);
-		return view('main.dashboard');
+
+		$deaths = number_format(Statistic::sum('deaths'));
+		$newCases = number_format(Statistic::sum('new_cases'));
+		$recovered = number_format(Statistic::sum('recovered'));
+
+		return view('main.dashboard', [
+			'newCases'  => $newCases,
+			'recovered' => $recovered,
+			'deaths'    => $deaths,
+		]);
 	}
 
 	public function authenticate(ValidateAuthRequest $request, $locale)
