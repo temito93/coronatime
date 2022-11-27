@@ -8,5 +8,5 @@ return [
 		'string'  => 'Must be at least :min characters.',
 	],
 	'exists'               => 'The selected :attribute is invalid.',
-	'confirmed'            => 'Password does not match.',
+	'same'                 => 'Password does not match.',
 ];
