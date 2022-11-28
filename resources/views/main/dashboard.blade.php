@@ -1,4 +1,4 @@
-<x-dashboard-container>
+<x-dashboard-container title="{{__('admin.title.worldwide')}}">
     <section class="mt-10">
        <div class="mt-10 flex justify-between">
             <x-new-cases value={{$newCases}} />

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Statistic;
+
 class AdminController extends Controller
 {
-	public function show($locale)
+	public function show()
 	{
-		app()->setLocale($locale);
-		return view('main.by-country');
+		return view('main.by-country', [
+			'statistics' => Statistic::all(),
+		]);
 	}
 }

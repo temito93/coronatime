@@ -8,4 +8,5 @@
 		'recovered'       => 'Recovered',
 		'death'           => 'Death',
 		'logout'          => 'Log Out',
+		'title.country'   => 'Statistics by country',
 	];
