@@ -2,7 +2,7 @@
 
 	return [
 		'title.worldwide' => 'Worldwide Statistics',
-		'worldwide'       => 'worldwide',
+		'worldwide'       => 'Worldwide',
 		'by.country'      => 'By country',
 		'new.cases'       => 'New cases',
 		'recovered'       => 'Recovered',

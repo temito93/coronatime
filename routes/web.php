@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PasswordResetController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SessionController;
@@ -23,4 +24,5 @@ Route::prefix('/{locale}')->middleware(['guest', 'set.locale'])->group(function 
 Route::prefix('/{locale}')->middleware(['auth', 'set.locale'])->group(function () {
 	Route::get('/dashboard', [SessionController::class, 'dashboard'])->name('dashboard');
 	Route::post('/logout', [SessionController::class, 'destroy']);
+	Route::get('/by_country', [AdminController::class, 'show'])->name('by.country');
 });
