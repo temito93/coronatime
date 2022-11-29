@@ -12,7 +12,7 @@
                 <h2 class="text-custom-black font-bold text-base">{{ucwords(auth()->user()->username)}}</h2>
             </div>
             <div class="border-l h-8 ml-4 flex items-center  border-custom-neutral-200 ">
-                <form action="/{{app()->getLocale()}}/logout" method="POST" class="mb-0">
+                <form action="{{route('logout')}}" method="POST" class="mb-0">
                     @csrf
                     <x-form.button class="ml-4 text-custom-black font-medium text-sm">{{__('admin.logout')}}</x-form.button>
                 </form>
