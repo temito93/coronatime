@@ -1,7 +1,7 @@
 <x-layout>
     <x-card>
-        <h2 class="mt-14 font-black desktop:text-2xl text-xl">{{__('register.welcome')}}</h2>
-        <p class="font-normal desktop:text-xl text-base text-zinc-500 mt-4">
+        <h2 class="mt-14 font-black desktop:text-2xl text-xl desktop:whitespace-nowrap whitespace-normal">{{__('register.welcome')}}</h2>
+        <p class="font-normal desktop:text-xl text-base text-zinc-500 mt-4 desktop:whitespace-nowrap whitespace-normal">
             {{__('register.welcome.details')}}
         </p>
         <form action="{{route('signup', ['locale' => app()->getLocale()])}}" class="mt-6" method="POST">
