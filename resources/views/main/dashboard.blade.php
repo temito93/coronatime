@@ -1,15 +1,14 @@
-<x-dashboard-container>
+<x-dashboard-container title="{{__('admin.title.worldwide')}}">
     <section class="mt-10">
-        <h2 class="text-custom-black font-extrabold text-[25px]">{{__('admin.title.worldwide')}}</h2>
-        <div class="mt-10 border-b pb-4 border-solid border-custom-neutral-100">
-            <a href="" class="text-base font-bold text-custom-black mr-[72px] border-b-[3px] border-custom-black pb-4">{{__('admin.worldwide')}}</a>
-            <a href="" class="pb-4 text-base font-normal text-custom-black">{{__('admin.by.country')}}</a>
-        </div>
-
        <div class="mt-10 flex justify-between">
-            <x-new-cases value={{$newCases}} />
-            <x-recovered value={{$recovered}} />
-            <x-death value={{$deaths}}/>
+            <x-new-cases value={{!is_null($newCases) ? $newCases : '' }} />
+            <x-recovered value={{!is_null($recovered) ? $recovered : '' }} />
+            <x-death value={{!is_null($deaths) ? $deaths : '' }}/>
        </div>
+       @if(!$statistics->count())
+            <div class="flex justify-center text-3xl">
+                <h2>{{__('admin.not.found')}}</h2>
+            </div>
+       @endif
     </section>
 </x-dashboard-container>

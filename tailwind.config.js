@@ -13,8 +13,15 @@ module.exports = {
                 "custom-red": "#CC1E1E",
                 "custom-neutral-100": "#F6F6F7",
                 "custom-yellow-400": "#EAD621",
+                "custom-stone-300": "#BFC0C4"
             },
+            boxShadow: {
+                "custom": "1px 2px 8px rgba(0, 0, 0, 0.04)"
+            }
         },
     },
-    plugins: [require("@tailwindcss/forms")],
+    plugins: [
+        require("@tailwindcss/forms"),
+        require('tailwind-scrollbar')({ nocompatible: true })
+    ],
 };

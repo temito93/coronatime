@@ -33,9 +33,10 @@ class SessionController extends Controller
 		$recovered = number_format(Statistic::sum('recovered'));
 
 		return view('main.dashboard', [
-			'newCases'  => $newCases,
-			'recovered' => $recovered,
-			'deaths'    => $deaths,
+			'statistics' => Statistic::all(),
+			'newCases'   => $newCases,
+			'recovered'  => $recovered,
+			'deaths'     => $deaths,
 		]);
 	}
 
