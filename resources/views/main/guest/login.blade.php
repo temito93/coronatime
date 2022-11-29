@@ -44,7 +44,7 @@
 
             <div class="mt-6">
                 <x-form.button
-                    class="bg-custom-green-500 text-white font-black desktop:w-[392px] w-[343px]  py-5 rounded-lg hover:bg-blue-400 desktop:text-base text-sm"
+                    class="bg-custom-green-500 text-white font-black desktop:w-[392px] w-[343px] rounded-lg hover:bg-blue-400"
                     >{{ __("login.login") }}</x-form.button
                 >
             </div>
