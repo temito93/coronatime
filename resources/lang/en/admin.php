@@ -12,4 +12,5 @@
 		'location'        => 'Location',
 		'deaths'          => 'Deaths',
 		'not.found'       => 'No Statistics Found.',
+		'search.country'  => 'Search by country',
 	];
