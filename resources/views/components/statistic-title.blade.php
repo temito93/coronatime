@@ -1,7 +1,3 @@
-@php
-    $queryString = http_build_query(['sort' => 'country', 'by' => 'desc']);
-@endphp
-
 <div class="flex h-14 items-center max-w-[770px] justify-between">
     <div>
         <a href="{{route('sort', ['locale' => app()->getLocale(), 'sort' => 'country', 'by' => request('by') == 'desc' ? 'asc' : 'desc'])}}" class="flex items-center">
