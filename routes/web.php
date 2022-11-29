@@ -14,9 +14,9 @@ Route::prefix('/{locale}')->middleware(['guest', 'set.locale'])->group(function 
 	Route::view('/signup', 'main.guest.register')->name('view.signup');
 	Route::post('/signup', [SessionController::class, 'store'])->name('signup');
 	Route::view('/reset', 'main.guest.reset')->name('view.reset');
-	Route::post('/password_reset', [PasswordResetController::class, 'send'])->name('password.reset.link');
-	Route::get('/password_reset/{email}/{token}', [PasswordResetController::class, 'show'])->name('view.password.reset');
-	Route::post('/update-password/{email}/{token}', [PasswordResetController::class, 'update'])->name('password.update');
+	Route::post('/passwordReset', [PasswordResetController::class, 'send'])->name('password.reset.link');
+	Route::get('/passwordReset/{email}/{token}', [PasswordResetController::class, 'show'])->name('view.password.reset');
+	Route::post('/updatePassword/{email}/{token}', [PasswordResetController::class, 'update'])->name('password.update');
 	Route::get('/account/verify/{token}', [SessionController::class, 'verifyAccount'])->name('user.verify');
 });
 
@@ -24,6 +24,6 @@ Route::prefix('/{locale}')->middleware(['guest', 'set.locale'])->group(function 
 Route::prefix('/{locale}')->middleware(['auth', 'set.locale'])->group(function () {
 	Route::get('/dashboard', [SessionController::class, 'dashboard'])->name('dashboard');
 	Route::post('/logout', [SessionController::class, 'destroy'])->name('logout');
-	Route::get('/by_country', [AdminController::class, 'show'])->name('by.country');
-	Route::get('/by_country/sort={sort}/by={by}', [AdminController::class, 'sort'])->name('sort');
+	Route::get('/byCountry', [AdminController::class, 'show'])->name('by.country');
+	Route::get('/byCountry/sort={sort}/by={by}', [AdminController::class, 'sort'])->name('sort');
 });
