@@ -1,5 +1,5 @@
 <x-layout>
-    <div class=" desktop:flex justify-center desktop:px-0 px-4">
+    <div class="desktop:flex justify-center desktop:px-0 px-4">
         <div class="flex flex-col desktop:items-center">
             <x-svg.logo class="desktop:mt-10 mt-[25px]"/>
             <div class="desktop:w-[392px] w-[343px] desktop:mt-[108px] mt-10">
