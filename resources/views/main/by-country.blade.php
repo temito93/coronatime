@@ -16,7 +16,7 @@
             <div class="ml-10">
                <x-statistic-title />
             </div>
-            <div class="max-h-[547px] scrollbar-track-transparent scrollbar-thumb-custom-zinc scrollbar-thumb-rounded scrollbar-thin bg-white">
+            <div class="grid grid-cols-1 max-h-[547px] scrollbar-track-transparent scrollbar-thumb-custom-zinc scrollbar-thumb-rounded scrollbar-thin bg-white">
 
                @if($statistics->count())
                 @if(!request('search'))
