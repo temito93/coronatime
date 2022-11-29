@@ -8,7 +8,7 @@
 
     <div class="mt-2 relative">
         <input
-            class="desktop:w-[392px] w-[343px] appearance-none  rounded-[8px] border {{$errors->any() ? 'border-custom-red border-solid' : 'border-custom-neutral-200'  }}  border-custom-neutral-200 pl-6 py-[19px] placeholder-custom-zinc font-normal text-base"
+            class="desktop:w-[392px] h-14  w-[343px] appearance-none  rounded-[8px] border {{$errors->any() ? 'border-custom-red border-solid' : 'border-custom-neutral-200'  }}  border-custom-neutral-200 pl-6 py-[19px] placeholder-custom-zinc font-normal text-base"
             type="{{ $type }}"
             name="{{ $name }}"
             id="{{ $id }}"
