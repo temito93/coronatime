@@ -1,5 +1,5 @@
 <div {{$attributes->
-    merge(['class' => 'flex items-center justify-between '])}}}>
+    merge(['class' => 'flex items-center justify-between desktop:w-[392px]'])}}}>
     <div>
         <input
             name="remember"
