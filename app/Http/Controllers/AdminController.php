@@ -33,4 +33,18 @@ class AdminController extends Controller
 			'newCases'   => $newCases,
 		]);
 	}
+
+	public function filter()
+	{
+		$deaths = number_format(Statistic::sum('deaths'));
+		$newCases = number_format(Statistic::sum('new_cases'));
+		$recovered = number_format(Statistic::sum('recovered'));
+
+		return view('main.by-country', [
+			'statistics' => Statistic::filter(request(['search', 'country']))->get(),
+			'recovered'  => $recovered,
+			'deaths'     => $deaths,
+			'newCases'   => $newCases,
+		]);
+	}
 }

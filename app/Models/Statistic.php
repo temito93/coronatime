@@ -12,4 +12,13 @@ class Statistic extends Model
 	protected $fillable = ['country', 'new_cases', 'deaths', 'recovered'];
 
 	public $translatable = ['country'];
+
+	public function scopeFilter($query, array $filters)
+	{
+		if ($filters['search'] ?? false)
+		{
+			$query->where('country->en', 'like', '%' . ucwords($filters['search']) . '%')
+			->orWhere('country->ka', 'like', '%' . ucwords($filters['search']) . '%');
+		}
+	}
 }

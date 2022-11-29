@@ -26,4 +26,5 @@ Route::prefix('/{locale}')->middleware(['auth', 'set.locale'])->group(function (
 	Route::post('/logout', [SessionController::class, 'destroy'])->name('logout');
 	Route::get('/byCountry', [AdminController::class, 'show'])->name('by.country');
 	Route::get('/byCountry/sort={sort}/by={by}', [AdminController::class, 'sort'])->name('sort');
+	Route::get('/byCountry/search', [AdminController::class, 'filter'])->name('search');
 });
