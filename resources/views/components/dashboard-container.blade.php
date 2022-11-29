@@ -3,9 +3,9 @@
     $dashboard = app()->getLocale()."/dashboard";
     $byCountry = app()->getLocale()."/byCountry";
 @endphp
-<x-layout>
+<x-layout class="h-full min-h-full">
     <x-header />
-    <main class="desktop:px-[108px] px-4">
+    <main {{$attributes->merge(['class' => "desktop:px-[108px] px-4"])}}>
         <div class="desktop:mt-10 mt-6">
             <h2 class="text-custom-black font-extrabold desktop:text-[25px] text-xl">{{$title}}</h2>
             <div class="desktop:mt-10 mt-6 border-b pb-4 border-solid border-custom-neutral-100">
