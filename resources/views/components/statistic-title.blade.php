@@ -1,4 +1,4 @@
-<div class="flex h-14 items-center max-w-[770px] justify-between">
+<div class="grid grid-cols-4 grid-row-1  h-14 items-center max-w-[770px]">
     <div>
         <a href="{{route('sort', ['locale' => app()->getLocale(), 'sort' => 'country', 'by' => request('by') == 'desc' ? 'asc' : 'desc'])}}" class="flex items-center">
             <h2 class="font-semibold text-sm text-custom-black">{{__('admin.location')}}</h2>
