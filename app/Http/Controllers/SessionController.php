@@ -58,7 +58,7 @@ class SessionController extends Controller
 			}
 			return redirect()->route('dashboard', ['locale' => $locale]);
 		}
-		return redirect()->back()->withInput()->withErrors('message');
+		return redirect()->back()->withErrors(['login' => __('login.login.error')])->onlyInput('login');
 	}
 
 	public function store(ValidateRegisterRequest $request, $locale)

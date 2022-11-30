@@ -33,14 +33,6 @@
                 >
             </x-form.checkbox>
 
-            @if ($errors->any())
-                <div class="mt-5 flex">
-                    <img src="{{asset('assets/images/not-found.png')}}" alt="">
-                        <p class="text-red-500 text-sm ml-3">
-                            {{ __("login.login.error") }}
-                        </p>
-                </div>
-            @endif
 
             <div class="mt-6">
                 <x-form.button
