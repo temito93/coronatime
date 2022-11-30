@@ -27,7 +27,7 @@ class AdminController extends Controller
 		$recovered = number_format(Statistic::sum('recovered'));
 
 		return view('main.by-country', [
-			'statistics' => Statistic::orderBy(request('sort'), request('by'))->get(),
+			'statistics' => Statistic::filter(request(['search', 'country']))->orderBy(request('sort'), request('by'))->get(),
 			'recovered'  => $recovered,
 			'deaths'     => $deaths,
 			'newCases'   => $newCases,
