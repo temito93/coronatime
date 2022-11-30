@@ -1,7 +1,7 @@
 <x-layout>
     <x-card>
-        <h2 class="mt-14 font-black text-2xl">{{__('register.welcome')}}</h2>
-        <p class="font-normal text-xl text-zinc-500 mt-4">
+        <h2 class="mt-14 font-black desktop:text-2xl text-xl desktop:whitespace-nowrap whitespace-normal">{{__('register.welcome')}}</h2>
+        <p class="font-normal desktop:text-xl text-base text-zinc-500 mt-4 desktop:whitespace-nowrap whitespace-normal">
             {{__('register.welcome.details')}}
         </p>
         <form action="{{route('signup', ['locale' => app()->getLocale()])}}" class="mt-6" method="POST">
@@ -27,11 +27,11 @@
                 >{{__('register.repeat.password')}}</x-form.input
             >
             <div class="mt-6">
-                <x-form.button class="bg-custom-green-500 text-white w-full font-black  py-5 rounded-lg hover:bg-blue-400">{{__('register.sign.up')}}</x-form.button>
+                <x-form.button class="bg-custom-green-500 text-white w-full font-black  rounded-lg hover:bg-blue-400">{{__('register.sign.up')}}</x-form.button>
             </div>
 
-            <div class="text-center mt-6">
-                <p class="text-custom-zinc text-base font-normal">{{__('register.account')}} <a href="{{ route('login', ['locale' => app()->getLocale()]) }}" class="text-custom-black font-bold">{{__('register.log.in')}}</a></p>
+            <div class="text-center mt-6 pb-[53px]">
+                <p class="text-custom-zinc desktop:text-base text-sm font-normal">{{__('register.account')}} <a href="{{ route('login', ['locale' => app()->getLocale()]) }}" class="text-custom-black font-bold">{{__('register.log.in')}}</a></p>
             </div>
         </form>
     </x-card>

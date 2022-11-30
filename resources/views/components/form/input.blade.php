@@ -1,14 +1,14 @@
 @props(['name', 'placeholder' => '','type' => 'text', 'id' => ''])
 
 <div {{$attributes->
-    merge(['class' => "mb-6"])}}>
-    <label for="{{ $name }}" class="font-bold text-custom-black text-[16px]">
+    merge(['class' => "desktop:mb-6 mb-4"])}}>
+    <label for="{{ $name }}" class="font-bold text-custom-black desktop:text-base text-sm">
         {{ $slot }}
     </label>
 
     <div class="mt-2 relative">
         <input
-            class="w-full appearance-none  rounded-[8px] border {{$errors->any() ? 'border-custom-red border-solid' : 'border-custom-neutral-200'  }}  border-custom-neutral-200 pl-6 py-[19px] placeholder-custom-zinc font-normal text-base"
+            class="desktop:w-[392px] h-14  w-[343px] appearance-none  rounded-[8px] border {{$errors->any() ? 'border-custom-red border-solid' : 'border-custom-neutral-200'  }}  border-custom-neutral-200 pl-6 py-[19px] placeholder-custom-zinc font-normal text-base"
             type="{{ $type }}"
             name="{{ $name }}"
             id="{{ $id }}"

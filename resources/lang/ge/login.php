@@ -7,7 +7,7 @@ return [
 	'username.placeholder' => 'უნიკალური მომხმარებელი ან მეილი',
 	'password'             => 'პაროლი',
 	'password.placeholder' => 'შეიყვანეთ პაროლი',
-	'remember'             => 'მოწყობილობის დამახსოვრება',
+	'remember'             => 'დამახსოვრება',
 	'forgot.password'      => 'პაროლის აღდგენა',
 	'login'                => 'შესვლა',
 	'no.account'           => 'არ გაქვთ ანგარიში?',

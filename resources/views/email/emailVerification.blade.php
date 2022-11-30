@@ -48,6 +48,41 @@
                 text-align: center;
                 cursor: pointer;
                 font-weight: 900;
+                font-size: 16px;
+            }
+
+            .img {
+                width: 520px;
+            }
+
+            @media (max-width: 375px) {
+                h2 {
+                    font-size: 20px;
+                }
+                p {
+                    font-size: 16px;
+                    margin-top: 8px;
+                }
+
+                .l-button {
+                    padding: 15px 0;
+                    font-size:14px;
+                    width:343px;
+                }
+
+                .body {
+                    margin-left: 8px;
+                    width:375px;
+                    margin-top: 16px;
+                }
+
+                .content {
+                    margin-top: 40px !important;
+                }
+
+                .img {
+                    width: 343px;
+                }
             }
         </style>
     </head>
@@ -57,7 +92,7 @@
                 <img
                     src="{{$message->embed(public_path().'/assets/images/email.png')}}"
                     alt=""
-                    width="520"
+                    class="img"
                 />
                 <div class="content">
                     <h2>{{ __("email.title.email") }}</h2>

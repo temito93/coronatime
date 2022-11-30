@@ -1,9 +1,9 @@
 <x-layout>
     <x-card>
-        <h2 class="mt-14 font-black text-2xl">
+        <h2 class="desktop:mt-14 mt-10 font-black desktop:text-2xl text-xl">
             {{ __("login.welcome.back") }}
         </h2>
-        <p class="font-normal text-xl text-zinc-500 mt-4">
+        <p class="font-normal desktop:text-xl text-base  text-zinc-500 desktop:mt-4 mt-2 desktop:whitespace-nowrap  whitespace-normal">
             {{ __("login.welcome.back.details") }}
         </p>
         <form
@@ -44,13 +44,13 @@
 
             <div class="mt-6">
                 <x-form.button
-                    class="bg-custom-green-500 text-white font-black w-full py-5 rounded-lg hover:bg-blue-400"
+                    class="bg-custom-green-500 text-white font-black desktop:w-[392px] w-[343px] rounded-lg hover:bg-blue-400"
                     >{{ __("login.login") }}</x-form.button
                 >
             </div>
 
-            <div class="text-center mt-6">
-                <p class="text-custom-zinc text-base font-normal">
+            <div class="text-center mt-6 desktop:w-[392px]">
+                <p class="text-custom-zinc desktop:text-base text-sm font-normal">
                     {{ __("login.no.account") }}
                     <a
                         href="{{ route('view.signup', ['locale' => app()->getLocale()]) }}"

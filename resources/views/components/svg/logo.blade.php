@@ -1,10 +1,9 @@
 <div {{$attributes->
     merge(['class'])}}>
     <svg
-        width="170"
-        height="42"
         viewBox="0 0 170 42"
         fill="none"
+        class="desktop:w-[170px] w-[137px] desktop:h-[42px] h-[33px]"
         xmlns="http://www.w3.org/2000/svg"
     >
         <path
