@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
 
 class AuthTest extends TestCase
@@ -15,6 +16,29 @@ class AuthTest extends TestCase
 		$response = $this->get(route('login', ['locale' => app()->getLocale()]));
 		$response->assertSuccessful();
 		$response->assertViewIs('main.guest.login');
+	}
+
+	public function test_if_not_auth_user_redirect_to_login_page()
+	{
+		$response = $this->get(route('check'));
+
+		$response->assertRedirectToRoute('login', ['locale' => app()->getLocale()]);
+	}
+
+	public function test_if_auth_user_redirect_to_dashboard()
+	{
+		$user = User::factory()->create(
+			[
+				'email'    => 'temo@redberry.ge',
+				'password' => 'password',
+			]
+		);
+
+		Auth::login($user);
+
+		$response = $this->get(route('check'));
+
+		$response->assertRedirectToRoute('dashboard', ['locale' => app()->getLocale()]);
 	}
 
 	public function test_auth_should_give_us_error_if_input_is_not_provided()

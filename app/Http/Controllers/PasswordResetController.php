@@ -33,7 +33,6 @@ class PasswordResetController extends Controller
 			});
 			return view('email.confirm-password', ['locale' => $locale]);
 		}
-		return redirect()->route('view.reset', ['locale' => $locale]);
 	}
 
 	public function show($locale, $email, $token)
@@ -61,7 +60,5 @@ class PasswordResetController extends Controller
 
 			return view('password.updated-password', ['locale' => $locale]);
 		}
-
-		return redirect()->back();
 	}
 }

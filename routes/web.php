@@ -5,7 +5,7 @@ use App\Http\Controllers\PasswordResetController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SessionController;
 
-Route::get('/', [SessionController::class, 'check']);
+Route::get('/', [SessionController::class, 'check'])->name('check');
 
 //GUEST
 Route::prefix('/{locale}')->middleware(['guest', 'set.locale'])->group(function () {
