@@ -7,7 +7,7 @@
                     @csrf
                     <h2 class="desktop:mb-14 mb-10 text-center text-custom-black font-black desktop:text-[25px] text-xl">{{__('password.title')}}</h2>
                     <div>
-                        <x-form.input name="email" placeholder="{{__('password.email.placeholder')}}" type="email" class="mb-0">{{__('password.email')}}</x-form.input>
+                        <x-form.input name="email" placeholder="{{__('password.email.placeholder')}}" type="text" class="mb-0">{{__('password.email')}}</x-form.input>
                     </div>
                     <x-form.button
                         class="py-[19px] flex items-center justify-center  bg-custom-green-500 text-white desktop:mt-14 mt-[320px]  w-full rounded-lg hover:bg-blue-400  font-black text-base"
