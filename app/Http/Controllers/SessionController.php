@@ -54,7 +54,7 @@ class SessionController extends Controller
 			if (auth()->user()->email_verified_at == null)
 			{
 				auth()->logout();
-				return view('email.not-verified', ['locale' =>$locale]);
+				return response()->view('email.not-verified', ['locale' =>$locale]);
 			}
 			return redirect()->route('dashboard', ['locale' => $locale]);
 		}

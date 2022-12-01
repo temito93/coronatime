@@ -111,4 +111,29 @@ class AuthTest extends TestCase
 
 		$response->assertRedirect(route('dashboard', ['locale' => app()->getLocale()]));
 	}
+
+	public function test_check_if_user_is_trying_to_log_in_if_is_not_verified_email_and_show_notification_view()
+	{
+		$email = 'temo@redberry.ge';
+		$password = 'password';
+
+		User::factory()->create(
+			[
+				'username'          => 'temo',
+				'email'             => $email,
+				'password'          => bcrypt($password),
+				'email_verified_at' => null,
+			]
+		);
+
+		$response = $this->post(
+			route('authenticate', ['locale' => app()->getLocale()]),
+			[
+				'login'    => $email,
+				'password' => $password,
+			]
+		);
+
+		$response->assertViewIs('email.not-verified', ['locale' => app()->getLocale()]);
+	}
 }
