@@ -25,6 +25,7 @@
             <file>./app/Http/Middleware/RedirectIfAuthenticated.php</file>
             <file>./app/Http/Middleware/TrimStrings.php</file>
             <file>./app/Http/Middleware/TrustHosts.php</file>
+            <file>./app/Http/Middleware/CheckUserSession.php</file>
             <file>./app/Http/Middleware/TrustProxies.php</file>
             <file>./app/Http/Middleware/ValidateSignature.php</file>
             <file>./app/Http/Middleware/VerifyCsrfToken.php</file>
