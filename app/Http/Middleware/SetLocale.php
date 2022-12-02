@@ -14,9 +14,13 @@ class SetLocale
 
 		if (app()->getLocale() == 'en' || app()->getLocale() == 'ge')
 		{
+			app()->setLocale($request->segment(1));
 			URL::defaults(['locale' => $request->segment(1)]);
 			return $next($request);
 		}
-		abort(404);
+		else
+		{
+			return redirect()->route('login', ['locale' => 'en']);
+		}
 	}
 }

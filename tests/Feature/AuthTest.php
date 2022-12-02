@@ -138,4 +138,10 @@ class AuthTest extends TestCase
 
 		$response->assertRedirectToRoute('dashboard', ['locale' => app()->getLocale()]);
 	}
+
+	public function test_check_if_locale_is_not_valid()
+	{
+		$response = $this->get(route('login', ['locale' => 'test']));
+		$response->assertRedirectToRoute('login', ['locale' => 'en']);
+	}
 }
