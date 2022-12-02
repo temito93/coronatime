@@ -99,3 +99,9 @@ npm run dev
 ![diagram](./readme/drawsql.png)
 
 
+##
+
+## Resources
+* [Figma design](https://www.figma.com/file/O9A950iYrHgZHtBuCtNSY8/Coronatime?node-id=0%3A1&t=rxb3qrJAF2c1TLyX-0) - Figma is a collaborative web application for interface design, with additional offline features enabled by desktop applications for macOS and Windows.
+* [Semantic commits](https://redberry.gitbook.io/resources/other/git-is-semantikuri-komitebi) - Git commits were done with the following information provided in this article.
+* [Assignment]() This assignment was done with the following requirements provided in this assignment description.
