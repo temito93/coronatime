@@ -9,7 +9,7 @@ class Kernel extends ConsoleKernel
 {
 	protected function schedule(Schedule $schedule)
 	{
-		$schedule->command('command:statistics')->everyMinute();
+		$schedule->command('command:statistics')->daily();
 	}
 
 	protected function commands()
