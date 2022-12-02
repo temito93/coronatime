@@ -12,7 +12,11 @@ class SetLocale
 	{
 		app()->setLocale($request->segment(1));
 
-		URL::defaults(['locale' => $request->segment(1)]);
-		return $next($request);
+		if (app()->getLocale() == 'en' || app()->getLocale() == 'ge')
+		{
+			URL::defaults(['locale' => $request->segment(1)]);
+			return $next($request);
+		}
+		abort(404);
 	}
 }
