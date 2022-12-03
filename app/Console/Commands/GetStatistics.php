@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 
 class GetStatistics extends Command
 {
-	protected $signature = 'command:statistics';
+	protected $signature = 'coronatime:statistics';
 
 	protected $description = 'Get Corona Statistics';
 
