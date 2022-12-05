@@ -50,7 +50,7 @@
                 font-weight: 900;
                 font-size: 16px;
             }
-            @media (max-width: 375px) {
+            @media (max-width: 380px) {
                 h2 {
                     font-size: 20px;
                 }
@@ -66,12 +66,19 @@
                 }
 
                 .body {
-                    margin-left: 8px;
+                    margin-left: unset;
+                    text-align: center;
                     width:375px;
                     margin-top: 16px;
                 }
 
+                .body div {
+                    width: 100%;
+                    text-align: center;
+                }
+
                 .content {
+                    margin: 0 auto;
                     margin-top: 40px !important;
                 }
 
