@@ -27,7 +27,7 @@
                 >{{__('register.repeat.password')}}</x-form.input
             >
             <div class="mt-6">
-                <x-form.button class="bg-custom-green-500 text-white w-full font-black  rounded-lg hover:bg-blue-400">{{__('register.sign.up')}}</x-form.button>
+                <x-form.button class="bg-custom-green-500 text-white w-full font-black  rounded-lg hover:bg-green-700">{{__('register.sign.up')}}</x-form.button>
             </div>
 
             <div class="text-center mt-6 pb-[53px]">

@@ -10,7 +10,7 @@
                         <x-form.input name="email" placeholder="{{__('password.email.placeholder')}}" type="text" class="mb-0">{{__('password.email')}}</x-form.input>
                     </div>
                     <x-form.button
-                        class="py-[19px] flex items-center justify-center  bg-custom-green-500 text-white desktop:mt-14 mt-[320px]  w-full rounded-lg hover:bg-blue-400  font-black text-base"
+                        class="py-[19px] flex items-center justify-center  bg-custom-green-500 text-white desktop:mt-14 mt-[320px]  w-full rounded-lg hover:bg-green-700  font-black text-base"
                         >{{__('password.reset.button')}}
                     </x-form.button>
                 </form>

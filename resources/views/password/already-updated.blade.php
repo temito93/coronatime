@@ -6,7 +6,7 @@
             </p>
             <a
                 href="{{ route('login', ['locale' => app()->getLocale()]) }}"
-                class="desktop:text-lg text-base  desktop:mt-[94px] mt-[191px]  desktop:py-[19px] py-4  bg-custom-green-500 text-white w-full rounded-lg font-black hover:bg-blue-400 text-center"
+                class="desktop:text-lg text-base  desktop:mt-[94px] mt-[191px]  desktop:py-[19px] py-4  bg-custom-green-500 text-white w-full rounded-lg font-black hover:bg-green-700 text-center"
                 >{{ __("password.sign.in") }}</a
             >
         </div>

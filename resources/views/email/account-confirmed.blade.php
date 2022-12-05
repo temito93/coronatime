@@ -8,7 +8,7 @@
             </p>
             <a
                 href="{{ route('login', ['locale' => app()->getLocale()]) }}"
-                class="desktop:mt-[94px] mt-[191px]  desktop:py-[19px] py-[15px] desktop:text-base text-sm  font-bold  bg-custom-green-500 text-white w-full rounded-lg hover:bg-blue-400 text-center"
+                class="desktop:mt-[94px] mt-[191px]  desktop:py-[19px] py-[15px] desktop:text-base text-sm  font-bold  bg-custom-green-500 text-white w-full rounded-lg hover:bg-green-700 text-center"
                 >{{ __("email.sign.in") }}</a
             >
         </div>

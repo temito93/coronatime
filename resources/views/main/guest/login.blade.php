@@ -36,7 +36,7 @@
 
             <div class="mt-6">
                 <x-form.button
-                    class="bg-custom-green-500 text-white font-black desktop:w-[392px] w-[343px] rounded-lg hover:bg-blue-400"
+                    class="bg-custom-green-500 text-white font-black desktop:w-[392px] w-[343px] rounded-lg hover:bg-green-700"
                     >{{ __("login.login") }}</x-form.button
                 >
             </div>

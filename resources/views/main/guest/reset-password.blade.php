@@ -11,7 +11,7 @@
                     <x-form.input type="password" name="confirm_password" placeholder="{{__('password.repeat.password')}}">{{__('password.repeat.password')}}</x-form.input>
                 </div>
                     <x-form.button
-                        class="desktop:mt-10 mt-[224px] bg-custom-green-500 text-white w-full rounded-lg hover:bg-blue-400 text-center font-black"
+                        class="desktop:mt-10 mt-[224px] bg-custom-green-500 text-white w-full rounded-lg hover:bg-green-700 text-center font-black"
                         >{{__('password.save')}} </x-form.button>
 
                 </form>
