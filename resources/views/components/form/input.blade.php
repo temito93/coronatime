@@ -16,7 +16,7 @@
             {{$type != 'password' ? $attributes(['value' => old($name)]) : "" }}
         />
         <div class="absolute right-4 bottom-5 hidden">
-            <img src="{{asset('assets/images/vector.png')}}" alt="">
+            <img src="{{asset('assets/images/vector.png')}}" alt="image">
         </div>
     </div>
     @error($name)
