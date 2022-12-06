@@ -1,7 +1,4 @@
-<x-layout>
-    <x-confirmation>
-        <p class="desktop:text-lg text-base font-normal text-custom-black mt-4">
-            {{ __("email.confirmation.email") }}
-        </p>
+<x-layout class="h-full min-h-full">
+    <x-confirmation text='{{ __("email.confirmation.email") }}'>
     </x-confirmation>
 </x-layout>
