@@ -43,7 +43,6 @@ class SessionController extends Controller
 	public function authenticate(ValidateAuthRequest $request, $locale)
 	{
 		app()->setLocale($locale);
-		$attributes = $request->validated();
 		$login_type = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 		$remember = request()->has('remember') ? true : false;
 
