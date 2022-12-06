@@ -1,7 +1,4 @@
-<x-layout>
-    <x-confirmation>
-        <p class="desktop:text-lg text-base font-normal text-custom-black mt-4">
-            {{ __("email.sent.password.reset") }}
-        </p>
+<x-layout class="h-full min-h-full">
+    <x-confirmation text='{{ __("email.sent.password.reset") }}'>
     </x-confirmation>
 </x-layout>
