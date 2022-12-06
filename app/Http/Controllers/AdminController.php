@@ -8,43 +8,37 @@ class AdminController extends Controller
 {
 	public function show()
 	{
-		$deaths = number_format(Statistic::sum('deaths'));
-		$newCases = number_format(Statistic::sum('new_cases'));
-		$recovered = number_format(Statistic::sum('recovered'));
+		$statisticsAll = Statistic::class;
 
 		return view('main.by-country', [
-			'statistics' => Statistic::all(),
-			'recovered'  => $recovered,
-			'deaths'     => $deaths,
-			'newCases'   => $newCases,
+			'statistics' => $statisticsAll::all(),
+			'recovered'  => number_format($statisticsAll::sum('recovered')),
+			'deaths'     => number_format($statisticsAll::sum('deaths')),
+			'newCases'   => number_format($statisticsAll::sum('new_cases')),
 		]);
 	}
 
 	public function sort()
 	{
-		$deaths = number_format(Statistic::sum('deaths'));
-		$newCases = number_format(Statistic::sum('new_cases'));
-		$recovered = number_format(Statistic::sum('recovered'));
+		$statisticsAll = Statistic::class;
 
 		return view('main.by-country', [
-			'statistics' => Statistic::filter(request(['search', 'country']))->orderBy(request('sort'), request('by'))->get(),
-			'recovered'  => $recovered,
-			'deaths'     => $deaths,
-			'newCases'   => $newCases,
+			'statistics' => $statisticsAll::filter(request(['search', 'country']))->orderBy(request('sort'), request('by'))->get(),
+			'recovered'  => number_format($statisticsAll::sum('recovered')),
+			'deaths'     => number_format($statisticsAll::sum('deaths')),
+			'newCases'   => number_format($statisticsAll::sum('new_cases')),
 		]);
 	}
 
 	public function filter()
 	{
-		$deaths = number_format(Statistic::sum('deaths'));
-		$newCases = number_format(Statistic::sum('new_cases'));
-		$recovered = number_format(Statistic::sum('recovered'));
+		$statisticsAll = Statistic::class;
 
 		return view('main.by-country', [
-			'statistics' => Statistic::filter(request(['search', 'country']))->get(),
-			'recovered'  => $recovered,
-			'deaths'     => $deaths,
-			'newCases'   => $newCases,
+			'statistics' => $statisticsAll::filter(request(['search', 'country']))->get(),
+			'recovered'  => number_format($statisticsAll::sum('recovered')),
+			'deaths'     => number_format($statisticsAll::sum('deaths')),
+			'newCases'   => number_format($statisticsAll::sum('new_cases')),
 		]);
 	}
 }
