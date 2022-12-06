@@ -11,7 +11,7 @@ class AdminController extends Controller
 		$statisticsAll = Statistic::class;
 
 		return view('main.by-country', [
-			'statistics'    => $statisticsAll,
+			'statisticsSum'    => $statisticsAll,
 		]);
 	}
 
@@ -20,7 +20,8 @@ class AdminController extends Controller
 		$statisticsAll = Statistic::class;
 
 		return view('main.by-country', [
-			'statistics'    => $statisticsAll::filter(request(['search', 'country']))->orderBy(request('sort'), request('by'))->get(),
+			'statisticsSum'           => $statisticsAll,
+			'statistics'              => $statisticsAll::filter(request(['search', 'country']))->orderBy(request('sort'), request('by'))->get(),
 		]);
 	}
 
