@@ -1,7 +1,7 @@
 @props(['title'])
 @php
     $dashboard = app()->getLocale()."/dashboard";
-    $byCountry = app()->getLocale()."/byCountry";
+    $byCountry = app()->getLocale()."/by-country";
 @endphp
 <x-layout class="h-full min-h-full">
     <x-header />
