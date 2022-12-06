@@ -28,15 +28,10 @@ class SessionController extends Controller
 	{
 		app()->setLocale($locale);
 
-		$deaths = number_format(Statistic::sum('deaths'));
-		$newCases = number_format(Statistic::sum('new_cases'));
-		$recovered = number_format(Statistic::sum('recovered'));
+		$statisticsAll = Statistic::class;
 
 		return view('main.dashboard', [
-			'statistics' => Statistic::all(),
-			'newCases'   => $newCases,
-			'recovered'  => $recovered,
-			'deaths'     => $deaths,
+			'statistics' => $statisticsAll,
 		]);
 	}
 

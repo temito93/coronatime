@@ -11,10 +11,7 @@ class AdminController extends Controller
 		$statisticsAll = Statistic::class;
 
 		return view('main.by-country', [
-			'statistics' => $statisticsAll::all(),
-			'recovered'  => number_format($statisticsAll::sum('recovered')),
-			'deaths'     => number_format($statisticsAll::sum('deaths')),
-			'newCases'   => number_format($statisticsAll::sum('new_cases')),
+			'statistics'    => $statisticsAll,
 		]);
 	}
 
@@ -23,10 +20,7 @@ class AdminController extends Controller
 		$statisticsAll = Statistic::class;
 
 		return view('main.by-country', [
-			'statistics' => $statisticsAll::filter(request(['search', 'country']))->orderBy(request('sort'), request('by'))->get(),
-			'recovered'  => number_format($statisticsAll::sum('recovered')),
-			'deaths'     => number_format($statisticsAll::sum('deaths')),
-			'newCases'   => number_format($statisticsAll::sum('new_cases')),
+			'statistics'    => $statisticsAll::filter(request(['search', 'country']))->orderBy(request('sort'), request('by'))->get(),
 		]);
 	}
 
@@ -34,11 +28,13 @@ class AdminController extends Controller
 	{
 		$statisticsAll = Statistic::class;
 
+		if (!request('search'))
+		{
+			return redirect()->route('by.country');
+		}
+
 		return view('main.by-country', [
-			'statistics' => $statisticsAll::filter(request(['search', 'country']))->get(),
-			'recovered'  => number_format($statisticsAll::sum('recovered')),
-			'deaths'     => number_format($statisticsAll::sum('deaths')),
-			'newCases'   => number_format($statisticsAll::sum('new_cases')),
+			'statistics'    => $statisticsAll::filter(request(['search', 'country']))->get(),
 		]);
 	}
 }
