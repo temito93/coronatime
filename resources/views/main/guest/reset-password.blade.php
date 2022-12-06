@@ -1,9 +1,9 @@
-<x-layout class="h-full min-h-full">
-    <div class="desktop:flex justify-center desktop:px-0 px-4 h-full min-h-full">
+<x-layout class="h-full min-h-full desktop:px-0 px-4">
+    <div class="desktop:flex justify-center  h-full min-h-full max-w-[343px] mx-auto">
         <div class="flex flex-col desktop:items-center h-full">
             <x-svg.logo class="desktop:mt-10 mt-[25px]"/>
-            <div class="desktop:w-[392px]  desktop:mt-[108px] mt-10 h-full flex justify-center w-full">
-                <form action="" method="POST" class="h-full  flex flex-col justify-end">
+            <div class="desktop:w-[392px]  desktop:mt-[108px] mt-10 h-full">
+                <form action="{{route('password.update', ['email' => $email, 'token' => $token, 'locale' => app()->getLocale()])}}" method="POST" class="h-full  flex flex-col justify-end">
                 @csrf
                 <div>
                     <h2 class="desktop:mb-14 mb-10 text-center text-custom-black font-black desktop:text-[25px] text-xl">{{__('password.title')}} </h2>
