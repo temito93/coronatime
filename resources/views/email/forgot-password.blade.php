@@ -95,7 +95,7 @@
             <div>
                 <img
                     src="{{$message->embed(public_path().'/assets/images/email.png')}}"
-                    alt=""
+                    alt="image"
                     class="img"
                 />
                 <div class="content">
