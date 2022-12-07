@@ -17,8 +17,15 @@ class Statistic extends Model
 	{
 		if ($filters['search'] ?? false)
 		{
-			$query->where('country->en', 'like', '%' . ucwords($filters['search']) . '%')
-			->orWhere('country->ka', 'like', '%' . ucwords($filters['search']) . '%');
+			if (app()->getLocale() == 'en')
+			{
+				$query->where('country->en', 'like', '%' . ucwords($filters['search']) . '%');
+			}
+
+			if (app()->getLocale() == 'ge')
+			{
+				$query->where('country->ka', 'like', '%' . ucwords($filters['search']) . '%');
+			}
 		}
 	}
 }

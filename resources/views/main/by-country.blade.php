@@ -9,7 +9,7 @@
                 </x-form.button>
             </div>
                 <input type="hidden" name="country" value="{{request('country')}}">
-            <input type="text" name="search" class="block w-full desktop:py-4 py-[25px] pl-[60px] text-sm text-custom-black border-none  desktop:border-solid  desktop:border-custom-neutral-200 rounded-lg  focus:ring-blue-500 focus:border-blue-500 placeholder-custom-zinc" placeholder="{{__('admin.search.country')}}">
+            <input value="{{request('search')}}" type="text" name="search" class="block w-full desktop:py-4 py-[25px] pl-[60px] text-sm text-custom-black border-none  desktop:border-solid  desktop:border-custom-neutral-200 rounded-lg  focus:ring-blue-500 focus:border-blue-500 placeholder-custom-zinc" placeholder="{{__('admin.search.country')}}">
         </div>
     </form>
     <div class="desktop:mt-10 mt-0  bg-custom-neutral-100 desktop:rounded-r-lg desktop:rounded-l-lg rounded-b-none shadow-custom">
@@ -17,14 +17,13 @@
            <x-statistic-title />
         </div>
         <div class="grid grid-cols-1 desktop:max-h-[547px] max-h-[358px]  scrollbar-track-transparent scrollbar-thumb-custom-zinc scrollbar-thumb-rounded scrollbar-thin bg-white">
-           @if($statistics->count())
             @if(!request('search'))
-                <x-statistic-info location="{{__('admin.worldwide')}}" newCases="{{ !is_null($newCases) ? $newCases : ''  }}" deaths="{{!is_null($deaths) ? $deaths : ''}}" recovered="{{!is_null($recovered) ? $recovered : ''}}" />
+                <x-statistic-info location="{{__('admin.worldwide')}}" newCases="{{number_format($statisticsSum::sum('new_cases'))}}" deaths="{{number_format($statisticsSum::sum('deaths'))}}" recovered="{{number_format($statisticsSum::sum('recovered'))}}" />
             @endif
-            @foreach($statistics as $statistic)
-                <x-statistic-info location="{{app()->getLocale() == 'ge' ? $statistic->getTranslation('country', 'ka') : $statistic->getTranslation('country', 'en')}}" newCases="{{number_format($statistic->new_cases)}}" deaths="{{number_format($statistic->deaths)}}" recovered="{{number_format($statistic->recovered)}}" />
+
+            @foreach(request('sort') || request('search') ? $statistics : $statisticsSum::all() as $statistic)
+                    <x-statistic-info location="{{app()->getLocale() == 'ge' ? $statistic->getTranslation('country', 'ka') : $statistic->getTranslation('country', 'en')}}" newCases="{{number_format($statistic->new_cases)}}" deaths="{{number_format($statistic->deaths)}}" recovered="{{number_format($statistic->recovered)}}" />
             @endforeach
-           @endif
         </div>
     </div>
 </section>
