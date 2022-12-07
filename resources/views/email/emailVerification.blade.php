@@ -24,6 +24,7 @@
 
             a {
                 color: white;
+                text-decoration: none;
             }
 
             h2 {
