@@ -1,4 +1,4 @@
-# Movie Quotes
+# Corona Time
 
 In Corona Times App you can check statistics all over the world.
 ##
