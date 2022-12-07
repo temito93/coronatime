@@ -17,14 +17,13 @@
            <x-statistic-title />
         </div>
         <div class="grid grid-cols-1 desktop:max-h-[547px] max-h-[358px]  scrollbar-track-transparent scrollbar-thumb-custom-zinc scrollbar-thumb-rounded scrollbar-thin bg-white">
-           @if($statistics->count())
             @if(!request('search'))
-                <x-statistic-info location="{{__('admin.worldwide')}}" newCases="{{ !is_null($newCases) ? $newCases : ''  }}" deaths="{{!is_null($deaths) ? $deaths : ''}}" recovered="{{!is_null($recovered) ? $recovered : ''}}" />
+                <x-statistic-info location="{{__('admin.worldwide')}}" newCases="{{number_format($statisticsSum::sum('new_cases'))}}" deaths="{{number_format($statisticsSum::sum('deaths'))}}" recovered="{{number_format($statisticsSum::sum('recovered'))}}" />
             @endif
-            @foreach($statistics as $statistic)
-                <x-statistic-info location="{{app()->getLocale() == 'ge' ? $statistic->getTranslation('country', 'ka') : $statistic->getTranslation('country', 'en')}}" newCases="{{number_format($statistic->new_cases)}}" deaths="{{number_format($statistic->deaths)}}" recovered="{{number_format($statistic->recovered)}}" />
+
+            @foreach(request('sort') || request('search') ? $statistics : $statisticsSum::all() as $statistic)
+                    <x-statistic-info location="{{app()->getLocale() == 'ge' ? $statistic->getTranslation('country', 'ka') : $statistic->getTranslation('country', 'en')}}" newCases="{{number_format($statistic->new_cases)}}" deaths="{{number_format($statistic->deaths)}}" recovered="{{number_format($statistic->recovered)}}" />
             @endforeach
-           @endif
         </div>
     </div>
 </section>

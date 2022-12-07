@@ -8,43 +8,34 @@ class AdminController extends Controller
 {
 	public function show()
 	{
-		$deaths = number_format(Statistic::sum('deaths'));
-		$newCases = number_format(Statistic::sum('new_cases'));
-		$recovered = number_format(Statistic::sum('recovered'));
+		$statisticsAll = Statistic::class;
 
 		return view('main.by-country', [
-			'statistics' => Statistic::all(),
-			'recovered'  => $recovered,
-			'deaths'     => $deaths,
-			'newCases'   => $newCases,
+			'statisticsSum'    => $statisticsAll,
 		]);
 	}
 
 	public function sort()
 	{
-		$deaths = number_format(Statistic::sum('deaths'));
-		$newCases = number_format(Statistic::sum('new_cases'));
-		$recovered = number_format(Statistic::sum('recovered'));
+		$statisticsAll = Statistic::class;
 
 		return view('main.by-country', [
-			'statistics' => Statistic::filter(request(['search', 'country']))->orderBy(request('sort'), request('by'))->get(),
-			'recovered'  => $recovered,
-			'deaths'     => $deaths,
-			'newCases'   => $newCases,
+			'statisticsSum'           => $statisticsAll,
+			'statistics'              => $statisticsAll::filter(request(['search', 'country']))->orderBy(request('sort'), request('by'))->get(),
 		]);
 	}
 
 	public function filter()
 	{
-		$deaths = number_format(Statistic::sum('deaths'));
-		$newCases = number_format(Statistic::sum('new_cases'));
-		$recovered = number_format(Statistic::sum('recovered'));
+		$statisticsAll = Statistic::class;
+
+		if (!request('search'))
+		{
+			return redirect()->route('by.country');
+		}
 
 		return view('main.by-country', [
-			'statistics' => Statistic::filter(request(['search', 'country']))->get(),
-			'recovered'  => $recovered,
-			'deaths'     => $deaths,
-			'newCases'   => $newCases,
+			'statistics'    => $statisticsAll::filter(request(['search', 'country']))->get(),
 		]);
 	}
 }
