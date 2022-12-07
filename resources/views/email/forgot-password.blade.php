@@ -15,15 +15,19 @@
                 text-decoration: none;
             }
             .body {
+                width: 100%;
                 height: 100%;
                 min-height: 100%;
-                display: flex;
-                margin-left: 25%;
+                text-align: center;
             }
             .content {
                 text-align: center;
                 margin-top: 56px !important;
             }
+            a {
+                color: white;
+            }
+
             h2 {
                 color: #010414;
                 font-weight: 900;
@@ -34,6 +38,12 @@
                 font-size: 18px;
                 color: #010414;
                 margin-top: 16px;
+            }
+
+            .container {
+                width: 100%;
+                text-align: center;
+                margin: 0 auto;
             }
 
             .l-button {
@@ -50,6 +60,11 @@
                 font-weight: 900;
                 font-size: 16px;
             }
+
+            .img {
+                max-width: 520px;
+            }
+
             @media (max-width: 380px) {
                 h2 {
                     font-size: 20px;
@@ -62,18 +77,21 @@
                 .l-button {
                     padding: 15px 0;
                     font-size:14px;
-                    width:343px;
+                    max-width:343px;
+                    width:100%;
                 }
 
                 .body {
                     margin-left: unset;
                     text-align: center;
-                    width:375px;
+                    max-width: 343px;
+                    width: 100%;;
                     margin-top: 16px;
                 }
 
-                .body div {
+                .container {
                     width: 100%;
+                    margin: 0 auto;
                     text-align: center;
                 }
 
@@ -84,15 +102,16 @@
 
                 .img {
                     width: 343px;
+                    width:100%;
                 }
             }
 
 
         </style>
     </head>
-    <body id="body">
+    <div id="body">
         <div class="body">
-            <div>
+            <div class="container">
                 <img
                     src="{{$message->embed(public_path().'/assets/images/email.png')}}"
                     alt="image"
@@ -110,5 +129,5 @@
                 >
             </div>
         </div>
-    </body>
+    </div>
 </html>
