@@ -4,10 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-            rel="stylesheet"
-        />
+
 
         <style type="text/css">
             u + #body a {
@@ -15,15 +12,21 @@
                 text-decoration: none;
             }
             .body {
+                width: 100%;
                 height: 100%;
                 min-height: 100%;
-                display: flex;
-                margin-left: 25%;
+                text-align: center;
             }
             .content {
                 text-align: center;
                 margin-top: 56px !important;
             }
+
+            a {
+                color: white;
+                text-decoration: none;
+            }
+
             h2 {
                 color: #010414;
                 font-weight: 900;
@@ -34,6 +37,12 @@
                 font-size: 18px;
                 color: #010414;
                 margin-top: 16px;
+            }
+
+            .container {
+                width: 100%;
+                text-align: center;
+                margin: 0 auto;
             }
 
             .l-button {
@@ -52,10 +61,10 @@
             }
 
             .img {
-                width: 520px;
+                max-width: 520px;
             }
 
-            @media (max-width: 380px) {
+            @media (max-width: 390px) {
                 h2 {
                     font-size: 20px;
                 }
@@ -67,18 +76,21 @@
                 .l-button {
                     padding: 15px 0;
                     font-size:14px;
-                    width:343px;
+                    max-width:343px;
+                    width: 100%;;
                 }
 
                 .body {
                     margin-left: unset;
                     text-align: center;
-                    width:375px;
+                    max-width: 343px;
+                    width: 100%;;
                     margin-top: 16px;
                 }
 
-                .body div {
+                .container {
                     width: 100%;
+                    margin: 0 auto;
                     text-align: center;
                 }
 
@@ -88,14 +100,15 @@
                 }
 
                 .img {
-                    width: 343px;
+                    max-width: 343px;
+                    width:100%;
                 }
             }
         </style>
     </head>
-    <body id="body">
+    <div id="body">
         <div class="body">
-            <div>
+            <div class="container">
                 <img
                     src="{{$message->embed(public_path().'/assets/images/email.png')}}"
                     alt="image"
@@ -113,5 +126,5 @@
                 >
             </div>
         </div>
-    </body>
+    </div>
 </html>
