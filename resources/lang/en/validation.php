@@ -9,5 +9,4 @@ return [
 	],
 	'exists'               => 'The selected :attribute is invalid.',
 	'same'                 => 'Password does not match.',
-	'regex'                => 'Invalid Format',
 ];
