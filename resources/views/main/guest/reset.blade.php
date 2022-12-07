@@ -1,9 +1,9 @@
-<x-layout class="h-full min-h-full">
-    <div class="h-full min-h-full flex justify-center desktop:px-0 px-4 pb-10">
-        <div class="flex flex-col desktop:items-center">
+<x-layout class="h-full min-h-full desktop:px-0 px-4">
+    <div class="h-full min-h-full pb-10 desktop:w-[392px] max-w-[343px] mx-auto">
+        <div class="flex flex-col  desktop:items-center h-full">
             <x-svg.logo class="desktop:mt-10 mt-[25px]"/>
             <div class="desktop:w-[392px] desktop:mt-[108px] mt-10 h-full">
-                <form action="{{route('password.reset.link', ['locale' => app()->getLocale()])}}" method="POST" class="h-full  flex flex-col justify-end">
+                <form action="{{route('password.reset.link', ['locale' => app()->getLocale()])}}" method="POST" class="h-full   flex flex-col justify-end">
                     @csrf
                     <div>
                         <h2 class="desktop:mb-14 mb-10 text-center text-custom-black font-black desktop:text-[25px] text-xl">{{__('password.title')}}</h2>
