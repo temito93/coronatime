@@ -10,7 +10,7 @@ class ValidateRegisterRequest extends FormRequest
 	{
 		return [
 			'username'         => ['required', 'min: 3', 'unique:users,username'],
-			'email'            => ['required', 'email', 'unique:users,email'],
+			'email'            => ['required', 'email:strict', 'unique:users,email'],
 			'password'         => ['required', 'min: 3'],
 			'confirm_password' => ['required', 'same:password'],
 		];
