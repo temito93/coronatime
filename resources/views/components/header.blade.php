@@ -1,5 +1,5 @@
 <header class="h-20 border-b border-custom-neutral-100 border-solid">
-    <div class="desktop:px-[108px] px-4 py-5 flex desktop:justify-between items-center">
+    <div class="desktop:px-[108px] px-4 py-5 flex justify-between items-center flex-wrap">
         {{-- Logo  --}}
         <div class="desktop:flex hidden">
             <x-svg.admin-logo />
@@ -11,7 +11,7 @@
 
         {{-- Navigation  --}}
         <div class="flex items-center h-8">
-            <div class="ml-14">
+            <div>
                 <x-dropdown/>
             </div>
             {{-- Mobile  --}}
