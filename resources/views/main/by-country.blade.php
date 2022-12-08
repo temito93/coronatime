@@ -1,4 +1,3 @@
-
 <x-dashboard-container title="{{__('admin.title.country')}}"/>
 <section class="desktop:pb-14 pb-0  desktop:px-[108px]">
     <form class="desktop:w-[239px] max-w-[375px]  desktop:mt-10 mt-0" method="GET" action="{{route('search')}}">

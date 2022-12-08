@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class AuthTest extends TestCase
 {
@@ -111,7 +111,7 @@ class AuthTest extends TestCase
 			]
 		);
 
-		$response->assertViewIs('email.not-verified', ['locale' => app()->getLocale()]);
+		$response->assertViewIs('email.confirmation', ['locale' => app()->getLocale()]);
 	}
 
 	public function test_auth_should_redirect_to_dashboard_if_user_is_verified()
