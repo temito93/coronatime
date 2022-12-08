@@ -28,10 +28,24 @@ class SessionController extends Controller
 	{
 		app()->setLocale($locale);
 
-		$statisticsAll = Statistic::class;
+		$statistics = Statistic::all();
+
+		$newCases = $statistics->reduce(function ($old, $cur) {
+			return $old + $cur['new_cases'];
+		});
+
+		$recovered = $statistics->reduce(function ($old, $cur) {
+			return $old + $cur['recovered'];
+		});
+
+		$deaths = $statistics->reduce(function ($old, $cur) {
+			return $old + $cur['deaths'];
+		});
 
 		return view('main.dashboard', [
-			'statistics' => $statisticsAll,
+			'newCases'             => $newCases,
+			'recovered'            => $recovered,
+			'deaths'               => $deaths,
 		]);
 	}
 

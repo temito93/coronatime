@@ -8,10 +8,25 @@ class AdminController extends Controller
 {
 	public function show()
 	{
-		$statisticsAll = Statistic::class;
+		$statistics = Statistic::all();
+
+		$newCases = $statistics->reduce(function ($old, $cur) {
+			return $old + $cur['new_cases'];
+		});
+
+		$recovered = $statistics->reduce(function ($old, $cur) {
+			return $old + $cur['recovered'];
+		});
+
+		$deaths = $statistics->reduce(function ($old, $cur) {
+			return $old + $cur['deaths'];
+		});
 
 		return view('main.by-country', [
-			'statisticsSum'    => $statisticsAll,
+			'statistics'           => $statistics,
+			'newCases'             => $newCases,
+			'recovered'            => $recovered,
+			'deaths'               => $deaths,
 		]);
 	}
 
@@ -19,9 +34,25 @@ class AdminController extends Controller
 	{
 		$statisticsAll = Statistic::class;
 
+		$statistics = $statisticsAll::all();
+
+		$newCases = $statistics->reduce(function ($old, $cur) {
+			return $old + $cur['new_cases'];
+		});
+
+		$recovered = $statistics->reduce(function ($old, $cur) {
+			return $old + $cur['recovered'];
+		});
+
+		$deaths = $statistics->reduce(function ($old, $cur) {
+			return $old + $cur['deaths'];
+		});
+
 		return view('main.by-country', [
-			'statisticsSum'           => $statisticsAll,
 			'statistics'              => $statisticsAll::filter(request(['search', 'country']))->orderBy(request('sort'), request('by'))->get(),
+			'newCases'                => $newCases,
+			'recovered'               => $recovered,
+			'deaths'                  => $deaths,
 		]);
 	}
 
@@ -29,13 +60,25 @@ class AdminController extends Controller
 	{
 		$statisticsAll = Statistic::class;
 
-		if (!request('search'))
-		{
-			return redirect()->route('by.country');
-		}
+		$statistics = $statisticsAll::all();
+
+		$newCases = $statistics->reduce(function ($old, $cur) {
+			return $old + $cur['new_cases'];
+		});
+
+		$recovered = $statistics->reduce(function ($old, $cur) {
+			return $old + $cur['recovered'];
+		});
+
+		$deaths = $statistics->reduce(function ($old, $cur) {
+			return $old + $cur['deaths'];
+		});
 
 		return view('main.by-country', [
-			'statistics'    => $statisticsAll::filter(request(['search', 'country']))->get(),
+			'statistics'              => $statisticsAll::filter(request(['search', 'country']))->get(),
+			'newCases'                => $newCases,
+			'recovered'               => $recovered,
+			'deaths'                  => $deaths,
 		]);
 	}
 }
