@@ -66,7 +66,7 @@
                 max-width: 520px;
             }
 
-            @media (max-width: 380px) {
+            @media (max-width: 500px) {
                 h2 {
                     font-size: 20px;
                 }
@@ -77,16 +77,16 @@
 
                 .l-button {
                     padding: 15px 0;
-                    font-size:14px;
-                    max-width:343px;
-                    width:100%;
+                    font-size: 14px;
+                    max-width: 343px;
+                    width: 100%;
                 }
 
                 .body {
                     margin-left: unset;
                     text-align: center;
                     max-width: 343px;
-                    width: 100%;;
+                    width: 100%;
                     margin-top: 16px;
                 }
 
@@ -103,11 +103,9 @@
 
                 .img {
                     width: 343px;
-                    width:100%;
+                    width: 100%;
                 }
             }
-
-
         </style>
     </head>
     <div id="body">

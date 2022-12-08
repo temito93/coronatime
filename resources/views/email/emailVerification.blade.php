@@ -5,7 +5,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
         <style type="text/css">
             u + #body a {
                 color: white;
@@ -64,7 +63,7 @@
                 max-width: 520px;
             }
 
-            @media (max-width: 390px) {
+            @media (max-width: 500px) {
                 h2 {
                     font-size: 20px;
                 }
@@ -75,16 +74,16 @@
 
                 .l-button {
                     padding: 15px 0;
-                    font-size:14px;
-                    max-width:343px;
-                    width: 100%;;
+                    font-size: 14px;
+                    max-width: 343px;
+                    width: 100%;
                 }
 
                 .body {
                     margin-left: unset;
                     text-align: center;
                     max-width: 343px;
-                    width: 100%;;
+                    width: 100%;
                     margin-top: 16px;
                 }
 
@@ -101,7 +100,7 @@
 
                 .img {
                     max-width: 343px;
-                    width:100%;
+                    width: 100%;
                 }
             }
         </style>
