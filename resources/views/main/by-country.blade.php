@@ -1,3 +1,4 @@
+
 <x-dashboard-container title="{{__('admin.title.country')}}"/>
 <section class="desktop:pb-14 pb-0  desktop:px-[108px]">
     <form class="desktop:w-[239px] max-w-[375px]  desktop:mt-10 mt-0" method="GET" action="{{route('search')}}">
@@ -18,10 +19,10 @@
         </div>
         <div class="grid grid-cols-1 desktop:max-h-[547px] max-h-[358px]  scrollbar-track-transparent scrollbar-thumb-custom-zinc scrollbar-thumb-rounded scrollbar-thin bg-white">
             @if(!request('search'))
-                <x-statistic-info location="{{__('admin.worldwide')}}" newCases="{{number_format($statisticsSum::sum('new_cases'))}}" deaths="{{number_format($statisticsSum::sum('deaths'))}}" recovered="{{number_format($statisticsSum::sum('recovered'))}}" />
+                <x-statistic-info location="{{__('admin.worldwide')}}" newCases="{{number_format($newCases)}}" deaths="{{number_format($deaths)}}" recovered="{{number_format($recovered)}}" />
             @endif
 
-            @foreach(request('sort') || request('search') ? $statistics : $statisticsSum::all() as $statistic)
+            @foreach($statistics as $statistic)
                     <x-statistic-info location="{{app()->getLocale() == 'ge' ? $statistic->getTranslation('country', 'ka') : $statistic->getTranslation('country', 'en')}}" newCases="{{number_format($statistic->new_cases)}}" deaths="{{number_format($statistic->deaths)}}" recovered="{{number_format($statistic->recovered)}}" />
             @endforeach
         </div>
